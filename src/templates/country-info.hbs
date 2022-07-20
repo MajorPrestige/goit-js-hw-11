@@ -1,0 +1,8 @@
+<div class="country-wrapper">
+<img src="{{this.flags.png}}" alt="{{this.flag}}" width="60", height="30">
+<h2>{{this.name.official}}</h2>
+</div>
+<p>Capital: {{this.capital}}</p>
+<p>Population: {{this.population}}</p>
+<p>Languages: {{#each languages}}{{#if @index includeZero=false}}, {{/if}}{{this}}
+{{/each}}</p>
