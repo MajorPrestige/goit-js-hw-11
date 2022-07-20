@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 10</title>
+    <title>Homework 11</title>
   </head>
   <body>
-    <input type="text" id="search-box" />
-    <ul class="country-list"></ul>
-    <div class="country-info"></div>
-
+    <section>
+      <form action="" class="search-bar">
+        <input type="search" name="search" pattern=".*\S.*" required />
+        <button class="search-btn" type="submit">
+          <span>Search</span>
+        </button>
+      </form>
+      <ul class="gallery js-gallery list"></ul>
+      <button type="button load-btn" class="load-more js-load-more is-hidden">
+        Load more
+      </button>
+    </section>
     <script src="index.js" type="module"></script>
   </body>
 </html>
