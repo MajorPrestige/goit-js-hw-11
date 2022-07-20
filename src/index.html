@@ -4,20 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Homework 11</title>
   </head>
   <body>
     <section>
-      <form action="" class="search-bar">
-        <input type="search" name="search" pattern=".*\S.*" required />
+      <form class="search-bar" id="search-bar">
+        <input
+          type="text"
+          name="search"
+          pattern=".*\S.*"
+          placeholder="Search images..."
+          autocomplete="off"
+          required
+        />
         <button class="search-btn" type="submit">
           <span>Search</span>
         </button>
       </form>
-      <ul class="gallery js-gallery list"></ul>
-      <button type="button load-btn" class="load-more js-load-more is-hidden">
-        Load more
-      </button>
+      <div class="gallery"></div>
+      <button type="button" class="load-more is-hidden">Load more</button>
     </section>
     <script src="index.js" type="module"></script>
   </body>

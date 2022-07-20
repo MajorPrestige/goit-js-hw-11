@@ -1,13 +1,26 @@
 'use strict';
+import axios from 'axios';
 
-export const fetchPhotoCard = countryName => {
-  return fetch(
-    `https://restcountries.com/v3.1/name/${countryName}?fields=name,capital,population,flags,languages`
-  ).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
+export class PixabayApi {
+  #BASE_URL = 'https://pixabay.com/api/';
+  #API_KEY = '28742881-7ed4fdaa96807499761d63f05';
 
-    return response.json();
-  });
-};
+  constructor() {
+    this.page = 1;
+    this.qeury = null;
+  }
+
+  fetchPhotosByQuery() {
+    return axios.get(`${this.#BASE_URL}`, {
+      params: {
+        key: this.#API_KEY,
+        q: this.qeury,
+        image_type: 'photo',
+        orientation: 'horizontal',
+        safesearch: 'true',
+        page: this.page,
+        per_page: 20,
+      },
+    });
+  }
+}
