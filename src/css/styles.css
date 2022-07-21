@@ -252,12 +252,14 @@ a {
   object-fit: cover;
 }
 
-.info {
-  display: flex;
-}
 .info-item {
   font-style: italic;
   font-size: 0.8em;
   color: grey;
   line-height: 1.4;
+}
+
+.info {
+  display: flex;
+  text-align: center;
 }
