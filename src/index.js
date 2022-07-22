@@ -49,7 +49,7 @@ function onFormSubmit(e) {
         loadBtnEl.classList.add('is-hidden');
         return;
       }
-
+      console.log(response.data.hits);
       Notify.success(`Hooray! We found ${response.data.totalHits} images.`);
       galleryEl.innerHTML = photoCard(response.data.hits);
       loadBtnEl.classList.remove('is-hidden');
