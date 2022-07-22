@@ -3,7 +3,6 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import photoCard from './templates/photo-card.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { PixabayPhotoAPI } from './js/infinity-card';
 
 const formEl = document.querySelector('.search-bar');
 const galleryEl = document.querySelector('.gallery');
