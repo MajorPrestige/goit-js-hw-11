@@ -8,6 +8,7 @@ export class PixabayApi {
   constructor() {
     this.page = 1;
     this.qeury = null;
+    this.per_page = 21;
   }
 
   fetchPhotosByQuery() {
@@ -19,7 +20,7 @@ export class PixabayApi {
         orientation: 'horizontal',
         safesearch: 'true',
         page: this.page,
-        per_page: 21,
+        per_page: this.per_page,
       },
     });
   }

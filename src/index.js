@@ -3,6 +3,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import photoCard from './templates/photo-card.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { PixabayPhotoAPI } from './js/infinity-card';
 
 const formEl = document.querySelector('.search-bar');
 const galleryEl = document.querySelector('.gallery');
@@ -43,6 +44,13 @@ function onFormSubmit(e) {
         return;
       }
 
+      if (response.data.hits.length < pixabayAPI.per_page) {
+        Notify.success(`Hooray! We found ${response.data.totalHits} images.`);
+        galleryEl.innerHTML = photoCard(response.data.hits);
+        loadBtnEl.classList.add('is-hidden');
+        return;
+      }
+
       Notify.success(`Hooray! We found ${response.data.totalHits} images.`);
       galleryEl.innerHTML = photoCard(response.data.hits);
       loadBtnEl.classList.remove('is-hidden');
@@ -61,7 +69,7 @@ function onLoadBtnClick() {
   pixabayAPI
     .fetchPhotosByQuery()
     .then(response => {
-      if (response.data.hits.length < 20) {
+      if (response.data.hits.length < pixabayAPI.per_page) {
         loadBtnEl.classList.add('is-hidden');
         Notify.info(
           "We're sorry, but you've reached the end of search results."
